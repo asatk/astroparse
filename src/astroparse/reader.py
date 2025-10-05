@@ -1,3 +1,6 @@
+"""
+This module defines the `Reader` class.
+"""
 
 from astropy.table import Table
 import re
@@ -8,10 +11,12 @@ from .defaults import MAX_LINE
 
 from .parse import parse_file
 
+
+
 class Reader():
     """
     The `Reader` object is a versatile class that can be leveraged to parse
-    multiple input files of similar formats.
+    multiple input files of multiple formats.
     """
 
 
@@ -101,7 +106,7 @@ class Reader():
 
 
 
-    def read_dicts(self,
+    def from_dicts(self,
                    dict_list: dict[list]):
         """
         Parse multiple files with each file's parameters being provided by a
@@ -131,7 +136,7 @@ class Reader():
 
 
 
-    def read_lists(self,
+    def from_lists(self,
                    flist: list[str],
                    sep_list: list[str]=None,
                    nan_list: list[str]=None,
