@@ -2,7 +2,7 @@
 Example script demonstrating how to use the parseutil package.
 """
 
-from parseutil import parse_file, Reader
+from astroparse import parse_file, Reader
 
 if __name__ == "__main__":
     
