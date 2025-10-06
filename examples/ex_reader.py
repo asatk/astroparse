@@ -2,7 +2,7 @@
 Example script demonstrating the use of the `Reader` class.
 """
 
-from src import Reader
+from astroparse import Reader
 
 if __name__ == "__main__":
     

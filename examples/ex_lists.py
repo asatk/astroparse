@@ -3,7 +3,7 @@ Example script demonstrating the use of the `Reader` class on multiple
 similarly-formatted input files.
 """
 
-from src import Reader
+from astroparse import Reader
 
 if __name__ == "__main__":
 

@@ -3,17 +3,14 @@ This module defines the `Reader` class.
 """
 
 from astropy.table import Table
-import re
 
 from .defaults import sep_reg
 from .defaults import nan_reg
-from .defaults import MAX_LINE
-
 from .parse import parse_file
 
 
 
-class Reader():
+class Reader:
     """
     The `Reader` object is a versatile class that can be leveraged to parse
     multiple input files of multiple formats.
@@ -25,12 +22,14 @@ class Reader():
                  sep_reg: str=sep_reg,
                  nan_reg: str=nan_reg,
                  hdr: int=-1,
-                 lo: int=0,
+                 lo: int=1,
                  hi: int=-1):
         """
         Initializes a `Reader` object with the default values for its parsing.
-        These values are used unless otherwise specified in a call to one of the
-        Reader's parsing methods.
+
+        The values with which a `Reader` is initialized define the default
+        behavior for parsing files unless overridden in the `Reader` instance
+        methods.
 
         Parameters
         ----------
@@ -42,7 +41,7 @@ class Reader():
             Line number in the input file where the header is found. Only one line
             can be read as the 'header' and it must have the same column format as
             the data. A value of `-1` means no header will be prepended to the data.
-        lo : int, default = 0
+        lo : int, default = 1
             First line number in the input file where the data appear.
         hi : int, default = -1
             Last line number in the input file where the data appear.
@@ -62,10 +61,12 @@ class Reader():
                    hdr: int=None,
                    lo: int=None,
                    hi: int=None,
-                   fname_out: str=None):
+                   fname_out: str=None) -> Table:
         """
-        Translates the contents of a file into string interpretable by the astropy
-        readers. The parsed contents are returned as an astropy `Table` and can be
+        Translates the contents of a file into string interpretable by astropy
+        readers.
+
+        The parsed contents are returned as an astropy `Table` and can be
         optionally be saved to an output file. Empty or NaN data can be replaced
         according to a specified pattern. Unless otherwise specified, the value
         for all arguments is `None` and will default to those with which the
@@ -107,12 +108,14 @@ class Reader():
 
 
     def from_dicts(self,
-                   dict_list: dict[list]):
+                   dict_list: dict[list]) -> list[Table]:
         """
-        Parse multiple files with each file's parameters being provided by a
-        dictionary of parameters. Each dictionary's keywords must belong to the
-        set of keywords of `parse_file`. Any specified keywords override the
-        defaults of the `Reader`.
+        Parse multiple files using dictionaries of arguments to override the
+        default parsing behavior for this `Reader` instance.
+
+        Each dictionary must have keywords that match the method signature of
+        `parse_file`. Not all keywords must be specified; only those for
+        which the defaults for the given `Reader` instance are not sufficient.
 
         Parameters
         ----------
@@ -123,7 +126,6 @@ class Reader():
         -------
         tbl_list : list[astropy.table.Table]
             List of the parsed contents of each input file as astropy `Table`.
-
         """
 
         # read each file and the arguments provided
@@ -143,14 +145,15 @@ class Reader():
                    hdr_list: list[int]=None,
                    lo_list: list[int]=None,
                    hi_list: list[int]=None,
-                   out_list: list[str]=None):
+                   out_list: list[str]=None) -> list[Table]:
         """
-        Parse multiple files with each file's paramters being provided in
-        multiple lists. Unless otherwise specified, the value for all lists is
-        `None` and will by default provide each call to `parse_file` with the
-        default arguments with which the `Reader` object was initialized. If not
-        `None`, all lists must be of the same length but can also contain
-        `None` to access the default values.
+        Parse multiple files using lists of arguments to override the default
+        behavior for this `Reader` instance.
+
+        Unless otherwise specified, the value for all lists is `None` and
+        will parse each file using the default behavior for the corresponding
+        argument provided to this reader. All non-`None` lists must be of the
+        same length but can still contain `None` to use the default behavior.
 
         Parameters
         ----------

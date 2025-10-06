@@ -1,5 +1,5 @@
 """
-Parse irregular data tables into .csv files or astropy.Table objects. 
+Parse irregular data tables into .csv files or astropy.Table objects.
 """
 
 from astropy.io import ascii
@@ -14,12 +14,14 @@ def parse_file(fname_in: str,
                sep_reg: str=sep_reg,
                nan_reg: str=nan_reg,
                hdr: int=-1,
-               lo: int=0,
+               lo: int=1,
                hi: int=-1,
                fname_out: str=None) -> Table:
     """
     Translates the contents of a file into string interpretable by the astropy
-    readers. The parsed contents are returned as an astropy `Table` and can be
+    readers.
+
+    The parsed contents are returned as an astropy `Table` and can be
     optionally be saved to an output file. Empty or NaN data can be replaced
     according to a specified pattern.
 
@@ -35,7 +37,7 @@ def parse_file(fname_in: str,
         Line number in the input file where the header is found. Only one line
         can be read as the 'header' and it must have the same column format as
         the data. A value of `-1` means no header will be prepended to the data.
-    lo : int, default = 0
+    lo : int, default = 1
         First line number in the input file where the data appear.
     hi : int, default = -1
         Last line number in the input file where the data appear.

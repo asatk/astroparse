@@ -2,7 +2,7 @@
 Example script demonstrating the use of the `parse_file` function.
 """
 
-from src import parse_file
+from astroparse import parse_file
 
 if __name__ == "__main__":
 

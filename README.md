@@ -11,21 +11,25 @@ humans and Python.
 
 ## Getting Started
 
-Download the contents of AstroParse into your working directory:
+Install AstroParse to your Python environment:
 
-```git clone https://github.com/asatk/astroparse.git```
+```pip install astroparse```
 
-In your code, use:
+To parse an individual file:
 
-`from astroparse import parse_file` to parse an individual file.
+```from astroparse import parse_file```
 
--- OR --
+To access the flexible `Reader` class:
 
-`from astroparse import Reader` to access the flexible
-`Reader` to parse multiple files at once; it uses the same interface as
-`parse_file`.
+```from astroparse import Reader```
+
+The `Reader` allows users to parse multiple files at once. The method 
+`Reader.read_lists` is best for parsing multiple files of similar formats 
+and structure; the method `Reader.read_dicts` is best for parsing multiple 
+files of different formats or structures. All methods use the same or 
+similar interface to `parse_file`. See more documentation in `/docs`.
 
 ## Next Steps
 
-Check out the examples in `astroparse/tests`!
+Check out the examples in `/tests`!
 

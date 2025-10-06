@@ -1,22 +1,27 @@
 [build-system]
-requires = ["setuptools", "astropy"]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "astroparse"
-version = "1.0.0"
+version = "0.1.2"
 authors = [
     { name = "Anthony Atkinson", email = "asa15@rice.edu" }
 ]
 description = "Flexible parsing utility for irregular text data tables."
 readme = "README.md"
-requires-python = ">=3.10"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent"
 ]
-license = "GPL-3.0-only"
-license-files = ["LICENSE"]
+
+requires-python = ">=3.10"
+dependencies = [
+    "astropy"
+]
 
 [project.urls]
 Homepage = "https://github.com/asatk/astroparse"
