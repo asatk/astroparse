@@ -31,5 +31,5 @@ similar interface to `parse_file`. See more documentation in `/docs`.
 
 ## Next Steps
 
-Check out the examples in `/tests`!
+Check out the examples in `/examples`!
 
