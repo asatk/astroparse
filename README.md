@@ -27,7 +27,9 @@ The `Reader` allows users to parse multiple files at once. The method
 `Reader.read_lists` is best for parsing multiple files of similar formats 
 and structure; the method `Reader.read_dicts` is best for parsing multiple 
 files of different formats or structures. All methods use the same or 
-similar interface to `parse_file`. See more documentation in `/docs`.
+similar interface to `parse_file`. See more **documentation**
+[here](https://astroparse.readthedocs.io/en/latest/ "astroparse docs")
+(https://astroparse.readthedocs.io/en/latest/).
 
 ## Next Steps
 
