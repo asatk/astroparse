@@ -9,7 +9,7 @@
 project = 'astroparse'
 copyright = '2025, Anthony Atkinson'
 author = 'Anthony Atkinson'
-release = '0.1.2'
+release = '0.1.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

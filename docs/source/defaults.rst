@@ -3,6 +3,7 @@ Default Parsing Behavior
 
 .. automodule:: astroparse.defaults
     :members:
+    :member-order: bysource
 
 
 In addition to these constants, the following behaviors are also assumed:
