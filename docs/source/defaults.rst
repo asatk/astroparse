@@ -4,10 +4,6 @@ Default Parsing Behavior
 .. automodule:: astroparse.defaults
     :members:
 
-..
-    .. autoattribute:: astroparse.defaults.sep_reg
-    .. autoattribute:: astroparse.defaults.nan_reg
-    .. autoattribute:: astroparse.defaults.MAX_LINE
 
 In addition to these constants, the following behaviors are also assumed:
 
